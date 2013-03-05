@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Fresh Look</title>
+<!-- External stylesheet -->
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+// Global array to map image settings (0 = display:none, 1 = display:block)
+var imageMap = [1, 0, 0, 0, 0];
+var imageName = ['mainimage', 'hipsterimage', 'brunetteimage', 'malemodelimage', 'blondimage'];
+// Global array of pixel values for object widths
+var pixelMap1 = [96, 136, 142, 140]
+// Script to center the logo on the top banner
+function resize(name1, name2, name3) 
+{
+	var pixelwidth = window.innerWidth;
+	var adjusted = (pixelwidth / 2) - 29;
+	var ratio = (adjusted / pixelwidth) * 100;
+	var textadjust = adjusted - 182;
+	var textratio = (textadjust / pixelwidth) * 100;
+	document.getElementById(name1).style.left = "" + ratio + "%";
+	document.getElementById(name2).style.left = "" + ratio + "%";
+	document.getElementById(name3).style.left = "" + textratio + "%";
+}
+// Script to adjust the spacings between the navigation bar elements
+function respace(name1, name2, name3, name4, name5, name6, name7, name8, text1, text2, text3, text4,
+text5, text6, text7, text8, trigger)
+{
+	var arrayMap;
+	if (trigger == 0)
+	{
+		arrayMap = pixelMap1;
+	}
+	else
+	{
+		arrayMap = pixelMap2;
+	}
+	var pixelwidth = window.innerWidth;
+	// document.getElementById('test2').innerHTML = "" + pixelwidth;
+	// Subtract left and right borders 
+	var adjusted = pixelwidth - 16;
+	// Subtract middle gaps and divide into four even pieces.
+	var ratio1 = (8 / adjusted) * 99.7;
+	var width = (99.7 - (3 * ratio1)) / 4;
+	//if ((width / 99.7) * adjusted >= 220) 
+	//{
+	var counter = 0;
+	var textadjust = 0;
+	var pixelcount = (pixelwidth - 40) / 4;
+	document.getElementById(name1).style.width = "" + width + "%";
+	document.getElementById(name5).style.width = "" + width + "%";
+	textadjust = counter + (((pixelcount - arrayMap[0]) / 2) / pixelwidth) * 99.7;
+	document.getElementById(text1).style.left = "" + textadjust + "%";
+	document.getElementById(text5).style.left = "" + textadjust + "%";
+	counter += width + ratio1 + .09;
+	document.getElementById(name2).style.width = "" + width + "%";
+	document.getElementById(name2).style.left = "" + counter + "%";
+	document.getElementById(name6).style.width = "" + width + "%";
+	document.getElementById(name6).style.left = "" + counter + "%";
+	textadjust = counter + (((pixelcount - arrayMap[1]) / 2) / pixelwidth) * 99.7;
+	document.getElementById(text2).style.left = "" + textadjust + "%";
+	document.getElementById(text6).style.left = "" + textadjust + "%";
+	counter += width + ratio1 + .09;
+	document.getElementById(name3).style.width = "" + width + "%";
+	document.getElementById(name3).style.left = "" + counter + "%";
+	document.getElementById(name7).style.width = "" + width + "%";
+	document.getElementById(name7).style.left = "" + counter + "%";
+	textadjust = counter + (((pixelcount - arrayMap[2]) / 2) / pixelwidth) * 99.7;
+	document.getElementById(text3).style.left = "" + textadjust + "%";
+	document.getElementById(text7).style.left = "" + textadjust + "%";
+	counter += width + ratio1 + .09;
+	document.getElementById(name4).style.width = "" + width + "%";
+	document.getElementById(name4).style.left = "" + counter + "%";
+	document.getElementById(name8).style.width = "" + width + "%";
+	document.getElementById(name8).style.left = "" + counter + "%";
+	textadjust = counter + (((pixelcount - arrayMap[3]) / 2) / pixelwidth) * 99.7;
+	document.getElementById(text4).style.left = "" + textadjust + "%";
+	document.getElementById(text8).style.left = "" + textadjust + "%";
+	//}
+}
+// Script to resize media buttons
+function respace2(name1, name2, name3, name4)
+{
+	var pixelwidth = window.innerWidth;
+	// document.getElementById('test2').innerHTML = "" + pixelwidth;
+	// Subtract left and right borders 
+	var adjusted = pixelwidth - 16;
+	// Subtract middle gaps and divide into four even pieces.
+	var ratio1 = (8 / adjusted) * 99.7;
+	var width = (99.7 - ratio1) / 2;
+	var counter = 0;
+	width += .1;
+	document.getElementById(name1).style.width = "" + width + "%";
+	document.getElementById(name3).style.width = "" + width + "%";
+	counter += width + ratio1 + .09;
+	document.getElementById(name2).style.width = "" + width + "%";
+	document.getElementById(name2).style.left = "" + counter + "%";
+	document.getElementById(name4).style.width = "" + width + "%";
+	document.getElementById(name4).style.left = "" + counter + "%";
+}
+// Script to keep the main images centered at all times
+function center(name1, name2, name3, name4, name5, name6, name7, name8, name9, name10)
+{
+	var pixelwidth = window.innerWidth;
+	var adjusted = pixelwidth - 32;
+	var difference = (adjusted - 825) / 2;
+	if (difference >= 0)
+	{
+		var final = difference + 8;
+		var counter = 0;
+		document.getElementById(name1).style.left = "" + final + "px";
+		document.getElementById(name2).style.left = "" + final + "px";
+		document.getElementById(name3).style.left = "" + final + "px";
+		document.getElementById(name4).style.left = "" + final + "px";
+		document.getElementById(name5).style.left = "" + final + "px";
+		counter = counter + difference + 253;
+		document.getElementById(name6).style.left = "" + (counter + 2) + "px";
+		counter += 68;
+		document.getElementById(name7).style.left = "" + counter + "px";
+		counter += 67;
+		document.getElementById(name8).style.left = "" + counter + "px";
+		counter += 68;
+		document.getElementById(name9).style.left = "" + counter + "px";
+		counter += 69;
+		document.getElementById(name10).style.left = "" + counter + "px";
+	}
+	else
+	{
+		document.getElementById(name1).style.left = "8px";
+		document.getElementById(name2).style.left = "8px";
+		document.getElementById(name3).style.left = "8px";
+		document.getElementById(name4).style.left = "8px";	
+		document.getElementById(name5).style.left = "8px";
+		document.getElementById(name6).style.left = "255px";
+		document.getElementById(name7).style.left = "323px";
+		document.getElementById(name8).style.left = "391px";
+		document.getElementById(name9).style.left = "459px";	
+		document.getElementById(name10).style.left = "527px";
+	}
+}
+// Scripts to add button functionality to slide show
+function mouseOverButtons(name1, name2) {
+	var char = name1.charAt(name1.length - 1);
+	var index = parseInt(char, 10) - 1;
+	if (imageMap[index] == 0)
+	{
+		var val = '1.0';
+		document.getElementById(name1).style.opacity = val;	
+	}
+}
+function mouseOutButtons(name1) {
+	document.getElementById(name1).style.opacity = "0.0";	
+}
+// Script to change photos on click
+function photoSwap(name1) {
+	var char = name1.charAt(name1.length - 1);
+	var index = parseInt(char, 10) - 1;
+	if (imageMap[index] == 0)
+	{
+		var currentIndex = 0;
+		for (var i = 0; i < imageMap.length; i++)
+		{
+			if (imageMap[i] == 1)
+			{
+				currentIndex = i;
+			}
+		}
+		imageMap[index] = 1;
+		document.getElementById(imageName[index]).style.display = 'block';
+		imageMap[currentIndex] = 0;
+		document.getElementById(imageName[currentIndex]).style.display = 'none';
+	}
+}
+// Script to detect whether the mouse is in the window
+/*var mouseX = 0;
+var mouseY = 0;
+var mouseIsIn = true;
+function wireEvent() {
+window.addEventListener("mouseout",
+    function(e){
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+    	if ((mouseY >= 0 && mouseY <= window.innerHeight)
+    	&& (mouseX >= 0 && mouseX <= window.innerWidth))
+    		return;
+        //do something for mouse out
+		mouseOut('darknavigation1', 'navigation1');
+		mouseOut('darknavigation2', 'navigation2');
+		mouseOut('darknavigation3', 'navigation3');
+		mouseOut('darknavigation4', 'navigation4');
+		mouseOutDouble('bluebanner', 'smalllogo2', 'graybanner', 'smalllogo1');
+    	mouseIsIn = false;
+    },
+    false);
+window.addEventListener("mouseover",
+    function(e){
+    	if(mouseIsIn)
+    		return;
+        //do something for mouse over
+    	mouseIsIn = true;
+    },
+    false);
+}*/
+// Script for onmouseover with two image switches
+function mouseOverDouble(name1, name2, name3, name4)
+{
+	document.getElementById(name1).style.display = 'block';
+	document.getElementById(name2).style.display = 'block';
+	document.getElementById(name3).style.display = 'none';
+	document.getElementById(name4).style.display = 'none';
+}
+// Script for onmouseout with two image switches
+function mouseOutDouble(name1, name2, name3, name4)
+{
+	document.getElementById(name1).style.display = 'none';
+	document.getElementById(name2).style.display = 'none';
+	document.getElementById(name3).style.display = 'block';
+	document.getElementById(name4).style.display = 'block';
+}
+// Script for onmouseover with one image switch
+function mouseOver(name1, name2)
+{
+	document.getElementById(name1).style.display = 'block';
+	document.getElementById(name2).style.display = 'none';
+}
+// Script for onmouseout with one image switch
+function mouseOut(name1, name2)
+{
+	document.getElementById(name1).style.display = 'none';
+	document.getElementById(name2).style.display = 'block';
+}
+</script>
+</head>
+
+<body onresize="resize('smalllogo1', 'smalllogo2', 'title'); respace('navigation1', 'navigation2', 
+'navigation3', 'navigation4', 'darknavigation1', 'darknavigation2', 'darknavigation3', 'darknavigation4',
+'text1', 'text2', 'text3', 'text4', 'darktext1', 'darktext2', 'darktext3', 'darktext4', 0);
+center('mainimage', 'hipsterimage', 'brunetteimage', 'malemodelimage', 'blondimage', 'blacklogo1', 'blacklogo2', 'blacklogo3', 'blacklogo4', 'blacklogo5');
+respace2('media1', 'media2', 'darkmedia1', 'darkmedia2');">
+	<div id="banner">
+		<img id="bluebanner" src="bluebanner.jpg" height="65" />
+		<img onmouseover="mouseOver('smalllogo2', 'smalllogo1')" 
+        id="smalllogo2" src="WorkingImages/transparentlightblue.png" />
+		<img onmouseover="mouseOver('smalllogo2', 'smalllogo1')" 
+        onmouseout="mouseOut('smalllogo2', 'smalllogo1')" id="graybanner" src="graybanner.png"  
+        height="65" />
+		<img id="smalllogo1" src="WorkingImages/transparentblue.png" />
+        <img onmouseover="mouseOver('smalllogo2', 'smalllogo1')" id="title" src="transparenttext.png" />
+	</div>
+	<div id="navigationbar">
+       	<img onmouseover="mouseOverDouble('darknavigation1', 'darktext1', 'navigation1', 'text1')" 
+        id="navigation1" src="lightbluenav.jpg" height="65" />
+		<img onmouseover="mouseOverDouble('darknavigation2', 'darktext2', 'navigation2', 'text2')" 
+        id="navigation2" src="lightbluenav.jpg" height="65" />
+		<img onmouseover="mouseOverDouble('darknavigation3', 'darktext3', 'navigation3', 'text3')" 
+        id="navigation3" src="lightbluenav.jpg" height="65" />
+		<img onmouseover="mouseOverDouble('darknavigation4', 'darktext4', 'navigation4', 'text4')" 
+        id="navigation4" src="lightbluenav.jpg" height="65" />
+        <img onmouseout="mouseOutDouble('darknavigation1', 'darktext1', 'navigation1', 'text1')" 
+        id="darknavigation1" src="darkbluenav.jpg" height="65" />
+		<img onmouseout="mouseOutDouble('darknavigation2', 'darktext2', 'navigation2', 'text2')" 
+        id="darknavigation2" src="darkbluenav.jpg" height="65" />
+		<img onmouseout="mouseOutDouble('darknavigation3', 'darktext3', 'navigation3', 'text3')" 
+        id="darknavigation3" src="darkbluenav.jpg" height="65" />
+		<img onmouseout="mouseOutDouble('darknavigation4', 'darktext4', 'navigation4', 'text4')" 
+        id="darknavigation4" src="darkbluenav.jpg" height="65" />
+        <p id="text1">A B O U T</p>
+        <p id="text2">G A L L E R Y</p>
+        <p id="text3">C O N T E N T</p>
+        <p id="text4">C O N T A C T</p>
+        <p onmouseover="mouseOverDouble('darknavigation1', 'darktext1', 'navigation1', 'text1')"
+        id="darktext1">A B O U T</p>
+        <p onmouseover="mouseOverDouble('darknavigation2', 'darktext2', 'navigation2', 'text2')"
+        id="darktext2">G A L L E R Y</p>
+        <p onmouseover="mouseOverDouble('darknavigation3', 'darktext3', 'navigation3', 'text3')"
+        id="darktext3">C O N T E N T</p>
+        <p onmouseover="mouseOverDouble('darknavigation4', 'darktext4', 'navigation4', 'text4')"
+        id="darktext4">C O N T A C T</p>
+    </div>
+    <div id="main">
+    	<img id="imageback" src="lighterblueimageback.png" height="566" />
+        <img id="mainimage" src="WorkingImages/mainimage.jpg" height="550" width="825" />
+        <img id="hipsterimage" src="WorkingImages/hipsterimage.jpg" height="550" width="825" />
+        <img id="brunetteimage" src="WorkingImages/brunetteimage.jpg" height="550" width="825" />
+        <img id="malemodelimage" src="WorkingImages/malemodelimage.jpg" height="550" width="825" />
+        <img id="blondimage" src="WorkingImages/blondimage.jpg" height="550" width="825" />
+        <img onmouseover="mouseOverButtons('blacklogo1', 'mainimage')" 
+        onmouseout="mouseOutButtons('blacklogo1')" onclick="photoSwap('blacklogo1')"
+        id="blacklogo1" src="WorkingImages/transparentlogo.png" height="58" width="58" />
+        <img onmouseover="mouseOverButtons('blacklogo2', 'hipsterimage')" 
+        onmouseout="mouseOutButtons('blacklogo2')" onclick="photoSwap('blacklogo2')"
+        id="blacklogo2" src="WorkingImages/transparentlogo.png" height="58" width="58" />
+        <img onmouseover="mouseOverButtons('blacklogo3', 'brunetteimage')" 
+        onmouseout="mouseOutButtons('blacklogo3')" onclick="photoSwap('blacklogo3')"
+        id="blacklogo3" src="WorkingImages/transparentlogo.png" height="58" width="58" />
+        <img onmouseover="mouseOverButtons('blacklogo4', 'malemodelimage')" 
+        onmouseout="mouseOutButtons('blacklogo4')" onclick="photoSwap('blacklogo4')"
+        id="blacklogo4" src="WorkingImages/transparentlogo.png" height="58" width="58" />
+        <img onmouseover="mouseOverButtons('blacklogo5', 'blondimage')" 
+        onmouseout="mouseOutButtons('blacklogo5')" onclick="photoSwap('blacklogo5')"
+        id="blacklogo5" src="WorkingImages/transparentlogo.png" height="58" width="58" />
+    </div>
+    <div id="mediabar">
+       	<img onmouseover="mouseOver('darkmedia1', 'media1')" id="media1" 
+        src="lightbluenav.jpg" height="65" />
+		<img onmouseover="mouseOver('darkmedia2', 'media2')" id="media2" 
+        src="lightbluenav.jpg" height="65" />
+        <img onmouseout="mouseOut('darkmedia1', 'media1')" id="darkmedia1" 
+        src="darkbluenav.jpg" height="65" />
+		<img onmouseout="mouseOut('darkmedia2', 'media2')" id="darkmedia2" 
+        src="darkbluenav.jpg" height="65" />
+        <!--<img id="facebooklight" scr="facebooklight.png" height="50" width="50" />
+        <img id="facebookdark" scr="facebookdark.png" height="50" width="50" />
+        <img id="twitterlight" scr="twitterlight.png" height="50" width="50" />
+        <img id="twitterdark" scr="twitterdark.png" height="50" width="50" />-->
+    </div>
+<script>
+resize('smalllogo1', 'smalllogo2', 'title'); 
+respace("navigation1", "navigation2", "navigation3", "navigation4", "darknavigation1", 
+"darknavigation2", "darknavigation3", "darknavigation4", 'text1', 'text2', 'text3', 'text4', 
+'darktext1', 'darktext2', 'darktext3', 'darktext4', 0);
+center('mainimage', 'hipsterimage', 'brunetteimage', 'malemodelimage', 'blondimage', 'blacklogo1', 'blacklogo2', 'blacklogo3', 'blacklogo4', 'blacklogo5');
+respace2('media1', 'media2', 'darkmedia1', 'darkmedia2');
+</script>
+</body>
+</html>
